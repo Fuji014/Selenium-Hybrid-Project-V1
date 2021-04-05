@@ -27,6 +27,8 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.myhybrid.base.BaseClass;
 
+
+
 /**
  * @author Jerome Gabat
  * @version V1
@@ -142,8 +144,14 @@ public class Action extends BaseClass {
 		}
 		return flag;
 	}
-
-	public static boolean selectBySendkeys(String value,WebElement ele) {
+	
+	public static void sendKeysUsingJScript(WebElement ele, String text) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("document.getElementByXpath("+ele+").value='Test Comment';");
+		
+	}
+	
+	public static boolean selectBySendkeys(WebElement ele, String value) {
 		boolean flag = false;
 		try {
 			ele.sendKeys(value);
@@ -234,7 +242,7 @@ public class Action extends BaseClass {
 	 *                    Listbox etc..)
 	 */
 
-	public static boolean selectByVisibleText(String visibletext, WebElement ele) {
+	public static boolean selectByVisibleText(WebElement ele, String visibletext) {
 		boolean flag = false;
 		try {
 			Select s = new Select(ele);
@@ -419,6 +427,7 @@ public class Action extends BaseClass {
 		}
 		return flag;
 	}
+	
 
 	public static boolean mouseover(WebDriver driver, WebElement ele) {
 		boolean flag = false;
@@ -720,6 +729,7 @@ public class Action extends BaseClass {
 	        wait.until(ExpectedConditions.visibilityOf(element));
 	        element.click();
 	    }catch(Exception e) {
+	    	
 	    }
 	}
 
@@ -730,6 +740,16 @@ public class Action extends BaseClass {
 	public static void explicitWait(WebDriver driver, WebElement element, int timeOut ) {
 		WebDriverWait wait = new WebDriverWait(driver,timeOut);
 		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public static void waitElementToBeClickable(WebDriver driver,WebElement element,int timeOut){
+		WebDriverWait wait = new WebDriverWait(driver, timeOut);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	public static void waitElementToBeStale(WebDriver driver,WebElement element,int timeOut){
+		WebDriverWait wait = new WebDriverWait(driver, timeOut);
+		wait.until(ExpectedConditions.stalenessOf(element));
 	}
 
 	public static void pageLoadTimeOut(WebDriver driver, int timeOut) {

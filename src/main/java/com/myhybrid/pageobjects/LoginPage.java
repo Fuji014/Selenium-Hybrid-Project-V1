@@ -19,11 +19,10 @@ public class LoginPage extends BaseClass{
 	WebElement btnSignIn;
 	
 	@FindBy(xpath="//input[@id='email_create']")
-	WebElement txtBoxCreateEmail;
+	WebElement txtBoxNewEmail;
 	
 	@FindBy(xpath="//button[@id='SubmitCreate']")
 	WebElement btnSignup;
-	
 	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
@@ -35,6 +34,13 @@ public class LoginPage extends BaseClass{
 		Action.click(driver, btnSignIn);
 		return new HomePage();
 	}
+	
+	public AccountCreationPage createNewAccount(String newEmail) {
+		Action.type(txtBoxNewEmail, newEmail);
+		return new AccountCreationPage();
+	}
+	
+	
 	
 	
 }
