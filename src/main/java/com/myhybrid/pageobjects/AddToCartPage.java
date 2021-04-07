@@ -18,6 +18,12 @@ public class AddToCartPage extends BaseClass {
 	@FindBy(xpath="//span[text()='Add to cart']")
 	WebElement btnAddToCart;
 	
+	@FindBy(xpath="//div[@id='layer_cart']//h2//i")
+	WebElement txtAddToCartMessage;
+	
+	@FindBy(xpath="//span[contains(text(), 'Proceed to checkout')]")
+	WebElement btnProceedToCheckout;
+	
 	public AddToCartPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -32,6 +38,15 @@ public class AddToCartPage extends BaseClass {
 	
 	public void clickOnAddToCart() {
 		Action.click(driver, btnAddToCart);
+	}
+	
+	public boolean validateAddToCart() {
+		return Action.isDisplayed(driver, txtAddToCartMessage);
+	}
+	
+	public OrderPage clickOnProceedToCheckout() throws Exception {
+		Action.JSClick(driver, btnProceedToCheckout);
+		return new OrderPage();
 	}
 	
 }

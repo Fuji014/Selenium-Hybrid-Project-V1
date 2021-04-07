@@ -26,5 +26,4 @@ public class SearchResultPage extends BaseClass {
 	}
 	
 	
-	
 }
