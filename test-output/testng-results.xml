@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="14" total="24" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="302411" started-at="2021-05-04T08:22:58 CST" finished-at="2021-05-04T08:28:00 CST">
+    <groups>
+      <group name="Sanity">
+        <method signature="AccountCreationPageTest.verifyCreateAccountPageTest()[pri:0, instance:com.myhybrid.testcases.AccountCreationPageTest@631330c]" name="verifyCreateAccountPageTest" class="com.myhybrid.testcases.AccountCreationPageTest"/>
+        <method signature="AddToCartPageTest.addToCartTest()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="addToCartTest" class="com.myhybrid.testcases.AddToCartPageTest"/>
+        <method signature="LoginPageTest.loginTest(java.lang.String, java.lang.String)[pri:0, instance:com.myhybrid.testcases.LoginPageTest@2353b3e6]" name="loginTest" class="com.myhybrid.testcases.LoginPageTest"/>
+      </group> <!-- Sanity -->
+      <group name="Regression">
+        <method signature="AddToCartPageTest.addToCartTest()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="addToCartTest" class="com.myhybrid.testcases.AddToCartPageTest"/>
+        <method signature="EndToEndTest.endToEndTest()[pri:0, instance:com.myhybrid.testcases.EndToEndTest@6f195bc3]" name="endToEndTest" class="com.myhybrid.testcases.EndToEndTest"/>
+        <method signature="OrderPageTest.verifyTotalPrice(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.myhybrid.testcases.OrderPageTest@7a187f14]" name="verifyTotalPrice" class="com.myhybrid.testcases.OrderPageTest"/>
+      </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="HomePageTest.orderHistoryandDetailsTest()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="orderHistoryandDetailsTest" class="com.myhybrid.testcases.HomePageTest"/>
+        <method signature="HomePageTest.wishListTest()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="wishListTest" class="com.myhybrid.testcases.HomePageTest"/>
+        <method signature="IndexPageTest.verifyLogo()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="verifyLogo" class="com.myhybrid.testcases.IndexPageTest"/>
+        <method signature="IndexPageTest.verifyTitle()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="verifyTitle" class="com.myhybrid.testcases.IndexPageTest"/>
+        <method signature="LoginPageTest.loginTest(java.lang.String, java.lang.String)[pri:0, instance:com.myhybrid.testcases.LoginPageTest@2353b3e6]" name="loginTest" class="com.myhybrid.testcases.LoginPageTest"/>
+        <method signature="SearchResultPageTest.productAvailabilityTest()[pri:0, instance:com.myhybrid.testcases.SearchResultPageTest@1a8a8f7c]" name="productAvailabilityTest" class="com.myhybrid.testcases.SearchResultPageTest"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test name="Test_All" duration-ms="302411" started-at="2021-05-04T08:22:58 CST" finished-at="2021-05-04T08:28:00 CST">
+      <class name="com.myhybrid.testcases.AccountCreationPageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.AccountCreationPageTest@631330c]" name="launchApp" is-config="true" duration-ms="7180" started-at="2021-05-04T08:27:49 CST" finished-at="2021-05-04T08:27:56 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="verifyCreateAccountPageTest()[pri:0, instance:com.myhybrid.testcases.AccountCreationPageTest@631330c]" name="verifyCreateAccountPageTest" duration-ms="3374" started-at="2021-05-04T08:27:56 CST" finished-at="2021-05-04T08:27:59 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateAccountPageTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.AccountCreationPageTest@631330c]" name="tearDown" is-config="true" duration-ms="971" started-at="2021-05-04T08:27:59 CST" finished-at="2021-05-04T08:28:00 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.AccountCreationPageTest -->
+      <class name="com.myhybrid.testcases.EndToEndTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.EndToEndTest@6f195bc3]" name="launchApp" is-config="true" duration-ms="8891" started-at="2021-05-04T08:25:01 CST" finished-at="2021-05-04T08:25:10 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="endToEndTest()[pri:0, instance:com.myhybrid.testcases.EndToEndTest@6f195bc3]" name="endToEndTest" duration-ms="99319" started-at="2021-05-04T08:25:10 CST" finished-at="2021-05-04T08:26:50 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endToEndTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.EndToEndTest@6f195bc3]" name="tearDown" is-config="true" duration-ms="1316" started-at="2021-05-04T08:26:50 CST" finished-at="2021-05-04T08:26:51 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.EndToEndTest -->
+      <class name="com.myhybrid.testcases.IndexPageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="launchApp" is-config="true" duration-ms="8431" started-at="2021-05-04T08:26:51 CST" finished-at="2021-05-04T08:26:59 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="verifyLogo()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="verifyLogo" duration-ms="2681" started-at="2021-05-04T08:26:59 CST" finished-at="2021-05-04T08:27:02 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="tearDown" is-config="true" duration-ms="1444" started-at="2021-05-04T08:27:02 CST" finished-at="2021-05-04T08:27:03 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="launchApp" is-config="true" duration-ms="7014" started-at="2021-05-04T08:27:03 CST" finished-at="2021-05-04T08:27:10 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="verifyTitle()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="verifyTitle" duration-ms="9" started-at="2021-05-04T08:27:10 CST" finished-at="2021-05-04T08:27:10 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitle -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.IndexPageTest@51e2adc7]" name="tearDown" is-config="true" duration-ms="1230" started-at="2021-05-04T08:27:10 CST" finished-at="2021-05-04T08:27:12 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.IndexPageTest -->
+      <class name="com.myhybrid.testcases.OrderPageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.OrderPageTest@7a187f14]" name="launchApp" is-config="true" duration-ms="11079" started-at="2021-05-04T08:24:27 CST" finished-at="2021-05-04T08:24:38 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="verifyTotalPrice(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.myhybrid.testcases.OrderPageTest@7a187f14]" name="verifyTotalPrice" duration-ms="22388" started-at="2021-05-04T08:24:38 CST" data-provider="getProduct" finished-at="2021-05-04T08:25:00 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[t-shirt]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[M]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTotalPrice -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.OrderPageTest@7a187f14]" name="tearDown" is-config="true" duration-ms="962" started-at="2021-05-04T08:25:00 CST" finished-at="2021-05-04T08:25:01 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.OrderPageTest -->
+      <class name="com.myhybrid.testcases.SearchResultPageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.SearchResultPageTest@1a8a8f7c]" name="launchApp" is-config="true" duration-ms="7511" started-at="2021-05-04T08:27:12 CST" finished-at="2021-05-04T08:27:19 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="productAvailabilityTest()[pri:0, instance:com.myhybrid.testcases.SearchResultPageTest@1a8a8f7c]" name="productAvailabilityTest" duration-ms="3372" started-at="2021-05-04T08:27:19 CST" finished-at="2021-05-04T08:27:23 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productAvailabilityTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.SearchResultPageTest@1a8a8f7c]" name="tearDown" is-config="true" duration-ms="977" started-at="2021-05-04T08:27:23 CST" finished-at="2021-05-04T08:27:24 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.SearchResultPageTest -->
+      <class name="com.myhybrid.testcases.LoginPageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.LoginPageTest@2353b3e6]" name="launchApp" is-config="true" duration-ms="7582" started-at="2021-05-04T08:27:24 CST" finished-at="2021-05-04T08:27:31 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:0, instance:com.myhybrid.testcases.LoginPageTest@2353b3e6]" name="loginTest" duration-ms="16741" started-at="2021-05-04T08:27:31 CST" data-provider="credentials" finished-at="2021-05-04T08:27:48 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@xyz.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.LoginPageTest@2353b3e6]" name="tearDown" is-config="true" duration-ms="922" started-at="2021-05-04T08:27:48 CST" finished-at="2021-05-04T08:27:49 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.LoginPageTest -->
+      <class name="com.myhybrid.testcases.AddToCartPageTest">
+        <test-method status="PASS" signature="loadConfig()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="loadConfig" is-config="true" duration-ms="556" started-at="2021-05-04T08:22:57 CST" finished-at="2021-05-04T08:22:58 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadConfig -->
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="launchApp" is-config="true" duration-ms="13766" started-at="2021-05-04T08:22:58 CST" finished-at="2021-05-04T08:23:12 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="addToCartTest()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="addToCartTest" duration-ms="18023" started-at="2021-05-04T08:23:12 CST" finished-at="2021-05-04T08:23:30 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addToCartTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="tearDown" is-config="true" duration-ms="1186" started-at="2021-05-04T08:23:30 CST" finished-at="2021-05-04T08:23:31 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.myhybrid.testcases.AddToCartPageTest@2173f6d9]" name="afterSuite" is-config="true" duration-ms="491" started-at="2021-05-04T08:28:00 CST" finished-at="2021-05-04T08:28:01 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.myhybrid.testcases.AddToCartPageTest -->
+      <class name="com.myhybrid.testcases.HomePageTest">
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="launchApp" is-config="true" duration-ms="8306" started-at="2021-05-04T08:23:31 CST" finished-at="2021-05-04T08:23:39 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="orderHistoryandDetailsTest()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="orderHistoryandDetailsTest" duration-ms="21244" started-at="2021-05-04T08:23:39 CST" finished-at="2021-05-04T08:24:01 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderHistoryandDetailsTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="tearDown" is-config="true" duration-ms="923" started-at="2021-05-04T08:24:01 CST" finished-at="2021-05-04T08:24:02 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="launchApp(java.lang.String)[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="launchApp" is-config="true" duration-ms="7893" started-at="2021-05-04T08:24:02 CST" finished-at="2021-05-04T08:24:09 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="wishListTest()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="wishListTest" duration-ms="14891" started-at="2021-05-04T08:24:09 CST" finished-at="2021-05-04T08:24:24 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wishListTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.myhybrid.testcases.HomePageTest@307f6b8c]" name="tearDown" is-config="true" duration-ms="1002" started-at="2021-05-04T08:24:24 CST" finished-at="2021-05-04T08:24:25 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.myhybrid.testcases.HomePageTest -->
+    </test> <!-- Test_All -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -10,17 +10,17 @@ import com.myhybrid.base.BaseClass;
 public class PaymentPage extends BaseClass{
 	
 	@FindBy(xpath="//a[@class='bankwire']")
-	WebElement anchorTagBankWirePaymentMethod;
+	private WebElement anchorTagBankWirePaymentMethod;
 	
 	@FindBy(xpath="//a[@class='cheque']")
-	WebElement anchorTagChequePaymentMethod;
+	private WebElement anchorTagChequePaymentMethod;
 	
 	public PaymentPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public OrderSummaryPage clickOnBankWire() {
-		Action.click(driver, anchorTagBankWirePaymentMethod);
+		Action.click(getDriver(), anchorTagBankWirePaymentMethod);
 		return new OrderSummaryPage();
 	}
 	

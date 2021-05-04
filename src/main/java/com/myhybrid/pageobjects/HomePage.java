@@ -7,24 +7,29 @@ import org.openqa.selenium.support.PageFactory;
 import com.myhybrid.actiondriver.Action;
 import com.myhybrid.base.BaseClass;
 
-public class HomePage extends BaseClass{
-	
-	@FindBy(xpath="//span[contains(text(), 'My wishlists')]")
-	WebElement txtWishList;
-	
-	@FindBy(xpath="//span[contains(text(), 'Order history and details')]")
-	WebElement txtOrderHistory;
-	
+public class HomePage extends BaseClass {
+
+	@FindBy(xpath = "//span[contains(text(), 'My wishlists')]")
+	private WebElement txtWishList;
+
+	@FindBy(xpath = "//span[contains(text(), 'Order history and details')]")
+	private WebElement txtOrderHistory;
+
 	public HomePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
-	
-	public void validateWishList() {
-		Action.isDisplayed(driver, txtWishList);
+
+	public boolean validateWishList() {
+		return Action.isDisplayed(getDriver(), txtWishList);
 	}
-	
-	public void validateOrderHistory() {
-		Action.isDisplayed(driver, txtOrderHistory);
+
+	public boolean validateOrderHistory() {
+		return Action.isDisplayed(getDriver(), txtOrderHistory);
+	}
+
+	public String getCurrentURL() {
+		String homePageURL = getDriver().getCurrentUrl();
+		return homePageURL;
 	}
 
 }

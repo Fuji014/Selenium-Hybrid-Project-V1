@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.myhybrid.utility.ListenerClass"/>
+  </listeners>
+  <test thread-count="5" name="Test_All(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="com.myhybrid.testcases.LoginPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="afterSuite"/>
+          <include name="loginTest"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.LoginPageTest -->
+      <class name="com.myhybrid.testcases.IndexPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="verifyLogo"/>
+          <include name="verifyTitle"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.IndexPageTest -->
+      <class name="com.myhybrid.testcases.SearchResultPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="afterSuite"/>
+          <include name="productAvailabilityTest"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.SearchResultPageTest -->
+      <class name="com.myhybrid.testcases.HomePageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="wishListTest"/>
+          <include name="orderHistoryandDetailsTest"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.HomePageTest -->
+      <class name="com.myhybrid.testcases.AccountCreationPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="verifyCreateAccountPageTest"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.AccountCreationPageTest -->
+      <class name="com.myhybrid.testcases.AddToCartPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="addToCartTest"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.AddToCartPageTest -->
+      <class name="com.myhybrid.testcases.EndToEndTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="endToEndTest"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.EndToEndTest -->
+      <class name="com.myhybrid.testcases.OrderPageTest">
+        <methods>
+          <include name="launchApp"/>
+          <include name="verifyTotalPrice"/>
+          <include name="afterSuite"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.myhybrid.testcases.OrderPageTest -->
+    </classes>
+  </test> <!-- Test_All(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -10,14 +10,14 @@ import com.myhybrid.base.BaseClass;
 public class AccountCreationPage extends BaseClass {
 	
 	@FindBy(xpath="//h1[@class='page-heading']")
-	WebElement txtFormTitle;
+	private WebElement txtFormTitle;
 	
 	public AccountCreationPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
-	public void validateAccountCreatePage() {
-		Action.isDisplayed(driver, txtFormTitle);
+	public boolean validateAccountCreatePage() {
+		return Action.isDisplayed(getDriver(), txtFormTitle);
 	}
 
 }

@@ -9,19 +9,19 @@ import com.myhybrid.base.BaseClass;
 
 public class SearchResultPage extends BaseClass {
 	
-	@FindBy(xpath="//img[@title='Faded Short Sleeve T-shirts']")
-	WebElement productResult;
+	@FindBy(xpath="//div[@class='product-container']//a[contains(text(), 'Faded Short Sleeve T-shirts')]")
+	private WebElement productResult;
 	
 	public SearchResultPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public boolean isProductAvailable() {
-		return Action.isDisplayed(driver, productResult);
+		return Action.isDisplayed(getDriver(), productResult);
 	}
 	
 	public AddToCartPage clickOnProduct() {
-		Action.click(driver, productResult);
+		Action.click(getDriver(), productResult);
 		return new AddToCartPage();
 	}
 	

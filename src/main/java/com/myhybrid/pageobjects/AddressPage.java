@@ -10,14 +10,14 @@ import com.myhybrid.base.BaseClass;
 public class AddressPage extends BaseClass {
 
 	@FindBy(xpath = "//button[@name='processAddress']")
-	WebElement btnProceedToCheckOut;
+	private WebElement btnProceedToCheckOut;
 
 	public AddressPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	public ShippingPage clickOnCheckOut() {
-		Action.click(driver, btnProceedToCheckOut);
+		Action.click(getDriver(), btnProceedToCheckOut);
 		return new ShippingPage();
 	}
 }

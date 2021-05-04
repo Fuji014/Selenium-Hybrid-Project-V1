@@ -6,6 +6,8 @@ package com.myhybrid.actiondriver;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -27,8 +29,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.myhybrid.base.BaseClass;
 
-
-
 /**
  * @author Jerome Gabat
  * @version V1
@@ -43,9 +43,20 @@ public class Action extends BaseClass {
 	}
 
 	public static void click(WebDriver driver, WebElement ele) {
-
-		Actions act = new Actions(driver);
-		act.moveToElement(ele).click().build().perform();
+		boolean flag = false;
+		try {
+			Actions act = new Actions(driver);
+			act.moveToElement(ele).click().build().perform();
+			flag = true;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (flag) {
+				System.out.println("Click Action is performed in WebElement " + ele);
+			} else {
+				System.out.println("Click Action is not performed in WebElement " + ele);
+			}
+		}
 
 	}
 
@@ -59,10 +70,10 @@ public class Action extends BaseClass {
 			flag = false;
 		} finally {
 			if (flag) {
-				System.out.println("Successfully Found element at");
+				System.out.println("Successfully Found element at " + ele);
 
 			} else {
-				System.out.println("Unable to locate element at");
+				System.out.println("Unable to locate element at " + ele);
 			}
 		}
 		return flag;
@@ -79,7 +90,7 @@ public class Action extends BaseClass {
 				System.out.println("The element is not Displayed");
 			}
 		} else {
-			System.out.println("Not displayed ");
+			System.out.println("Element Not displayed " + ele);
 		}
 		return flag;
 	}
@@ -132,25 +143,25 @@ public class Action extends BaseClass {
 			// logger.info("Entered text :"+text);
 			flag = true;
 		} catch (Exception e) {
-			System.out.println("Location Not found");
+			System.out.println("Location Not found ");
 			flag = false;
 		} finally {
 			if (flag) {
-				System.out.println("Successfully entered value");
+				System.out.println("Successfully entered value " + text);
 			} else {
-				System.out.println("Unable to enter value");
+				System.out.println("Unable to enter value " + text);
 			}
 
 		}
 		return flag;
 	}
-	
+
 	public static void sendKeysUsingJScript(WebElement ele, String text) {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("document.getElementByXpath("+ele+").value='Test Comment';");
-		
+		executor.executeScript("document.getElementByXpath(" + ele + ").value='Test Comment';");
+
 	}
-	
+
 	public static boolean selectBySendkeys(WebElement ele, String value) {
 		boolean flag = false;
 		try {
@@ -162,7 +173,7 @@ public class Action extends BaseClass {
 			return false;
 		} finally {
 			if (flag) {
-				System.out.println("Select value from the DropDown");		
+				System.out.println("Select value from the DropDown");
 			} else {
 				System.out.println("Not Selected value from the DropDown");
 				// throw new ElementNotFoundException("", "", "")
@@ -211,7 +222,7 @@ public class Action extends BaseClass {
 	 * @param locatorName : Meaningful name to the element (Ex:Year Dropdown, items
 	 *                    Listbox etc..)
 	 */
-	public static boolean selectByValue(WebElement element,String value) {
+	public static boolean selectByValue(WebElement element, String value) {
 		boolean flag = false;
 		try {
 			Select s = new Select(element);
@@ -253,9 +264,9 @@ public class Action extends BaseClass {
 			return false;
 		} finally {
 			if (flag) {
-				System.out.println("Option selected by VisibleText");
+				System.out.println("Option selected by VisibleText " + visibletext + " in WebElement " + ele);
 			} else {
-				System.out.println("Option not selected by VisibleText");
+				System.out.println("Option not selected by VisibleText " + visibletext + " in WebElement " + ele);
 			}
 		}
 	}
@@ -271,16 +282,14 @@ public class Action extends BaseClass {
 			js.executeScript(javaScript, mo);
 			flag = true;
 			return true;
-		}
-
-		catch (Exception e) {
+		} catch (Exception e) {
 
 			return false;
 		} finally {
 			if (flag) {
-				System.out.println("MouseOver Action is performed");
+				System.out.println("MouseOver Action is performed in WebElement " + ele);
 			} else {
-				System.out.println("MouseOver Action is not performed");
+				System.out.println("MouseOver Action is not performed in WebElement " + ele);
 			}
 		}
 	}
@@ -292,25 +301,20 @@ public class Action extends BaseClass {
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", ele);
 			// driver.executeAsyncScript("arguments[0].click();", element);
-
 			flag = true;
-
-		}
-
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw e;
-
 		} finally {
 			if (flag) {
-				System.out.println("Click Action is performed");
+				System.out.println("JSClick Action is performed in WebElement " + ele);
 			} else if (!flag) {
-				System.out.println("Click Action is not performed");
+				System.out.println("JSClick Action is not performed in WebElement " + ele);
 			}
 		}
 		return flag;
 	}
 
-	public static boolean switchToFrameByIndex(WebDriver driver,int index) {
+	public static boolean switchToFrameByIndex(WebDriver driver, int index) {
 		boolean flag = false;
 		try {
 			new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe")));
@@ -335,7 +339,7 @@ public class Action extends BaseClass {
 	 * @param idValue : Frame ID wish to switch
 	 * 
 	 */
-	public static boolean switchToFrameById(WebDriver driver,String idValue) {
+	public static boolean switchToFrameById(WebDriver driver, String idValue) {
 		boolean flag = false;
 		try {
 			driver.switchTo().frame(idValue);
@@ -360,7 +364,7 @@ public class Action extends BaseClass {
 	 * @param nameValue : Frame Name wish to switch
 	 * 
 	 */
-	public static boolean switchToFrameByName(WebDriver driver,String nameValue) {
+	public static boolean switchToFrameByName(WebDriver driver, String nameValue) {
 		boolean flag = false;
 		try {
 			driver.switchTo().frame(nameValue);
@@ -396,7 +400,7 @@ public class Action extends BaseClass {
 		}
 	}
 
-	public static void mouseOverElement(WebDriver driver,WebElement element) {
+	public static void mouseOverElement(WebDriver driver, WebElement element) {
 		boolean flag = false;
 		try {
 			new Actions(driver).moveToElement(element).build().perform();
@@ -427,7 +431,6 @@ public class Action extends BaseClass {
 		}
 		return flag;
 	}
-	
 
 	public static boolean mouseover(WebDriver driver, WebElement ele) {
 		boolean flag = false;
@@ -448,7 +451,7 @@ public class Action extends BaseClass {
 		}
 	}
 
-	public static boolean draggable(WebDriver driver,WebElement source, int x, int y) {
+	public static boolean draggable(WebDriver driver, WebElement source, int x, int y) {
 		boolean flag = false;
 		try {
 			new Actions(driver).dragAndDropBy(source, x, y).build().perform();
@@ -457,19 +460,19 @@ public class Action extends BaseClass {
 			return true;
 
 		} catch (Exception e) {
-		
+
 			return false;
-			
+
 		} finally {
 			if (flag) {
-				System.out.println("Draggable Action is performed on \""+source+"\"");			
-			} else if(!flag) {
-				System.out.println("Draggable action is not performed on \""+source+"\"");
+				System.out.println("Draggable Action is performed on \"" + source + "\"");
+			} else if (!flag) {
+				System.out.println("Draggable action is not performed on \"" + source + "\"");
 			}
 		}
 	}
 
-	public static boolean draganddrop(WebDriver driver,WebElement source, WebElement target) {
+	public static boolean draganddrop(WebDriver driver, WebElement source, WebElement target) {
 		boolean flag = false;
 		try {
 			new Actions(driver).dragAndDrop(source, target).perform();
@@ -481,14 +484,13 @@ public class Action extends BaseClass {
 		} finally {
 			if (flag) {
 				System.out.println("DragAndDrop Action is performed");
-			} else if(!flag) {
+			} else if (!flag) {
 				System.out.println("DragAndDrop Action is not performed");
 			}
 		}
 	}
-	
 
-	public static boolean slider(WebDriver driver,WebElement ele, int x, int y) {
+	public static boolean slider(WebDriver driver, WebElement ele, int x, int y) {
 		boolean flag = false;
 		try {
 			// new Actions(driver).dragAndDropBy(dragitem, 400, 1).build()
@@ -508,8 +510,8 @@ public class Action extends BaseClass {
 			}
 		}
 	}
-	
-	public static boolean rightclick(WebDriver driver,WebElement ele) {
+
+	public static boolean rightclick(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {
 			Actions clicker = new Actions(driver);
@@ -528,24 +530,24 @@ public class Action extends BaseClass {
 			}
 		}
 	}
-	
-	public static boolean switchWindowByTitle(WebDriver driver,String windowTitle, int count) {
+
+	public static boolean switchWindowByTitle(WebDriver driver, String windowTitle, int count) {
 		boolean flag = false;
 		try {
 			Set<String> windowList = driver.getWindowHandles();
 
 			String[] array = windowList.toArray(new String[0]);
 
-			driver.switchTo().window(array[count-1]);
+			driver.switchTo().window(array[count - 1]);
 
-			if (driver.getTitle().contains(windowTitle)){
+			if (driver.getTitle().contains(windowTitle)) {
 				flag = true;
-			}else{
+			} else {
 				flag = false;
 			}
 			return flag;
 		} catch (Exception e) {
-			//flag = true;
+			// flag = true;
 			return false;
 		} finally {
 			if (flag) {
@@ -560,8 +562,8 @@ public class Action extends BaseClass {
 		boolean flag = false;
 		try {
 
-			Set<String> s=driver.getWindowHandles();
-			Object popup[]=s.toArray();
+			Set<String> s = driver.getWindowHandles();
+			Object popup[] = s.toArray();
 			driver.switchTo().window(popup[1].toString());
 			flag = true;
 			return flag;
@@ -570,7 +572,7 @@ public class Action extends BaseClass {
 			return flag;
 		} finally {
 			if (flag) {
-				System.out.println("Window is Navigated with title");				
+				System.out.println("Window is Navigated with title");
 			} else {
 				System.out.println("The Window with title: is not Selected");
 			}
@@ -581,8 +583,8 @@ public class Action extends BaseClass {
 		boolean flag = false;
 		try {
 
-			Set<String> s=driver.getWindowHandles();
-			Object popup[]=s.toArray();
+			Set<String> s = driver.getWindowHandles();
+			Object popup[] = s.toArray();
 			driver.switchTo().window(popup[0].toString());
 			flag = true;
 			return flag;
@@ -591,13 +593,13 @@ public class Action extends BaseClass {
 			return flag;
 		} finally {
 			if (flag) {
-				System.out.println("Focus navigated to the window with title");			
+				System.out.println("Focus navigated to the window with title");
 			} else {
 				System.out.println("The Window with title: is not Selected");
 			}
 		}
 	}
-	
+
 	public static int getColumncount(WebElement row) {
 		List<WebElement> columns = row.findElements(By.tagName("td"));
 		int a = columns.size();
@@ -608,14 +610,13 @@ public class Action extends BaseClass {
 		}
 		return a;
 	}
-	
+
 	public static int getRowCount(WebElement table) {
 		List<WebElement> rows = table.findElements(By.tagName("tr"));
 		int a = rows.size() - 1;
 		return a;
 	}
-	
-	
+
 	/**
 	 * Verify alert present or not
 	 * 
@@ -640,8 +641,8 @@ public class Action extends BaseClass {
 			ex.printStackTrace();
 		} finally {
 			if (!presentFlag) {
-				System.out.println("The Alert is handled successfully");		
-			} else{
+				System.out.println("The Alert is handled successfully");
+			} else {
 				System.out.println("There was no alert to handle");
 			}
 		}
@@ -649,7 +650,7 @@ public class Action extends BaseClass {
 		return presentFlag;
 	}
 
-	public static boolean launchUrl(WebDriver driver,String url) {
+	public static boolean launchUrl(WebDriver driver, String url) {
 		boolean flag = false;
 		try {
 			driver.navigate().to(url);
@@ -659,48 +660,43 @@ public class Action extends BaseClass {
 			return false;
 		} finally {
 			if (flag) {
-				System.out.println("Successfully launched \""+url+"\"");				
+				System.out.println("Successfully launched \"" + url + "\"");
 			} else {
-				System.out.println("Failed to launch \""+url+"\"");
+				System.out.println("Failed to launch \"" + url + "\"");
 			}
 		}
 	}
-	
 
-	public static boolean isAlertPresent(WebDriver driver) 
-	{ 
-		try 
-		{ 
-			driver.switchTo().alert(); 
-			return true; 
-		}   // try 
-		catch (NoAlertPresentException Ex) 
-		{ 
-			return false; 
-		}   // catch 
+	public static boolean isAlertPresent(WebDriver driver) {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} // try
+		catch (NoAlertPresentException Ex) {
+			return false;
+		} // catch
 	}
-	
+
 	public static String getTitle(WebDriver driver) {
 		boolean flag = false;
 
 		String text = driver.getTitle();
 		if (flag) {
-			System.out.println("Title of the page is: \""+text+"\"");
+			System.out.println("Title of the page is: \"" + text + "\"");
 		}
 		return text;
 	}
-	
 
-	public static String getCurrentURL(WebDriver driver)  {
+	public static String getCurrentURL(WebDriver driver) {
 		boolean flag = false;
 
 		String text = driver.getCurrentUrl();
 		if (flag) {
-			System.out.println("Current URL is: \""+text+"\"");
+			System.out.println("Current URL is: \"" + text + "\"");
 		}
 		return text;
 	}
-	
+
 	public static boolean click1(WebElement locator, String locatorName) {
 		boolean flag = false;
 		try {
@@ -711,43 +707,82 @@ public class Action extends BaseClass {
 			return false;
 		} finally {
 			if (flag) {
-				System.out.println("Able to click on \""+locatorName+"\"");
+				System.out.println("Able to click on \"" + locatorName + "\"");
 			} else {
-				System.out.println("Click Unable to click on \""+locatorName+"\"");
+				System.out.println("Click Unable to click on \"" + locatorName + "\"");
 			}
 		}
 
 	}
-	
-	public static void fluentWait(WebDriver driver,WebElement element, int timeOut) {
-	    Wait<WebDriver> wait = null;
-	    try {
-	        wait = new FluentWait<WebDriver>((WebDriver) driver)
-	        		.withTimeout(Duration.ofSeconds(20))
-	        	    .pollingEvery(Duration.ofSeconds(2))
-	        	    .ignoring(Exception.class);
-	        wait.until(ExpectedConditions.visibilityOf(element));
-	        element.click();
-	    }catch(Exception e) {
-	    	
-	    }
+
+	public static void fluentWait(WebDriver driver, WebElement element, int timeOut) {
+		Wait<WebDriver> wait = null;
+		try {
+			wait = new FluentWait<WebDriver>((WebDriver) driver).withTimeout(Duration.ofSeconds(20))
+					.pollingEvery(Duration.ofSeconds(2)).ignoring(Exception.class);
+			wait.until(ExpectedConditions.visibilityOf(element));
+			element.click();
+		} catch (Exception e) {
+			
+		}
+	}
+	public static boolean fluentWait1(WebDriver driver, WebElement element, int timeOut) {
+		boolean flag = false;
+		Wait<WebDriver> wait = null;
+		try {
+			wait = new FluentWait<WebDriver>((WebDriver) driver).withTimeout(Duration.ofSeconds(20))
+					.pollingEvery(Duration.ofSeconds(2)).ignoring(Exception.class);
+			wait.until(ExpectedConditions.visibilityOf(element));
+			element.click();
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		} 
+		return flag;
+	}
+
+	public static void checkPageIsReady(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Initially bellow given if condition will check ready state of page.
+		if (js.executeScript("return document.readyState").toString().equals("complete")) {
+			System.out.println("Page Is loaded.");
+			return;
+		}
+		// This loop will rotate for 25 times to check If page Is ready after every 1
+		// second.
+		// You can replace your value with 25 If you wants to Increase or decrease wait
+		// time.
+		for (int i = 0; i < 25; i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
+			// To check page ready state.
+			if (js.executeScript("return document.readyState").toString().equals("complete")) {
+				break;
+			}
+		}
 	}
 
 	public static void implicitWait(WebDriver driver, int timeOut) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	public static void explicitWait(WebDriver driver, WebElement element, int timeOut ) {
-		WebDriverWait wait = new WebDriverWait(driver,timeOut);
-		wait.until(ExpectedConditions.visibilityOf(element));
+	public static void explicitWait(WebDriver driver, WebElement element, int timeOut) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, timeOut);
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (Exception e) {
+			throw e;
+		}
 	}
-	
-	public static void waitElementToBeClickable(WebDriver driver,WebElement element,int timeOut){
+
+	public static void waitElementToBeClickable(WebDriver driver, WebElement element, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-	
-	public static void waitElementToBeStale(WebDriver driver,WebElement element,int timeOut){
+
+	public static void waitElementToBeStale(WebDriver driver, WebElement element, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOut);
 		wait.until(ExpectedConditions.stalenessOf(element));
 	}
@@ -768,14 +803,50 @@ public class Action extends BaseClass {
 			e.getMessage();
 		}
 		// This new path for jenkins
-		String newImageString = "http://localhost:8082/job/MyStoreProject/ws/MyStoreProject/ScreenShots/" + filename + "_"
-				+ dateName + ".png";
+		String newImageString = "http://localhost:8082/job/MyStoreProject/ws/MyStoreProject/ScreenShots/" + filename
+				+ "_" + dateName + ".png";
 		return newImageString;
 	}
 
 	public static String getCurrentTime() {
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
 		return currentDate;
+	}
+
+	// verify
+	public void verifySelectBox(ArrayList<String> expected, WebElement ele) {
+		Select dropDown = new Select(ele);
+		List<WebElement> actualDropDown = dropDown.getOptions();
+
+		for (int i = 0; i < actualDropDown.size(); i++) {
+			if (actualDropDown.get(i).getText().equals(expected.get(i))) {
+				System.out.println("Value Matching :" + " Actual value = " + actualDropDown.get(i).getText()
+						+ " And Expected value= " + expected.get(i));
+			} else {
+				System.out.println("Value Not Matching : " + " Actual value = " + actualDropDown.get(i).getText()
+						+ " And Expected value = " + expected.get(i));
+			}
+		}
+
+	}
+
+	public void verifyListElement(ArrayList<String> expected, List<WebElement> ele) {
+		for (int i = 0; i < ele.size(); i++) {
+			System.out.println(ele.get(i).getText());
+			if (ele.get(i).getText().equals(expected.get(i))) {
+				System.out.println("Value Matching :" + " Actual value = " + ele.get(i).getText()
+						+ " And Expected value= " + expected.get(i));
+			} else {
+				System.out.println("Value Not Matching : " + " Actual value = " + ele.get(i).getText()
+						+ " And Expected value = " + expected.get(i));
+			}
+		}
+	}
+
+	public ArrayList<String> convertStringToArrayList(String data, String delimeter) {
+		String[] convertStringToArray = data.split(delimeter);
+		ArrayList<String> convertedToArrayList = new ArrayList<String>(Arrays.asList(convertStringToArray));
+		return convertedToArrayList;
 	}
 
 }

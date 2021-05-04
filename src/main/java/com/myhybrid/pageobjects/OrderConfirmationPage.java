@@ -10,10 +10,10 @@ import com.myhybrid.base.BaseClass;
 public class OrderConfirmationPage extends BaseClass {
 	
 	@FindBy(xpath="//div[@class='box']//p//strong[contains(text(), 'Your order on My Store is complete.')]")
-	WebElement txtConfirmMessage;
+	private WebElement txtConfirmMessage;
 
 	public OrderConfirmationPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public String validateConfirmMessage() {

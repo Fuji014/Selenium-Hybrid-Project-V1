@@ -10,14 +10,14 @@ import com.myhybrid.base.BaseClass;
 public class OrderSummaryPage extends BaseClass {
 	
 	@FindBy(xpath="//span[contains(text(), 'I confirm my order')]")
-	WebElement btnConfirmMyOrder;
+	private WebElement btnConfirmMyOrder;
 	
 	public OrderSummaryPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public OrderConfirmationPage clickOnConfirmOrderBtn() {
-		Action.click(driver, btnConfirmMyOrder);
+		Action.click(getDriver(), btnConfirmMyOrder);
 		return new OrderConfirmationPage();
 	}
 	

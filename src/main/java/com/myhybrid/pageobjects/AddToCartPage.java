@@ -8,45 +8,55 @@ import com.myhybrid.actiondriver.Action;
 import com.myhybrid.base.BaseClass;
 
 public class AddToCartPage extends BaseClass {
-	
-	@FindBy(xpath="//input[@id='quantity_wanted']")
-	WebElement txtBoxQuantity;
-	
-	@FindBy(xpath="//select[@id='group_1']")
-	WebElement dropDownBtnSize;
-	
-	@FindBy(xpath="//span[text()='Add to cart']")
-	WebElement btnAddToCart;
-	
-	@FindBy(xpath="//div[@id='layer_cart']//h2//i")
-	WebElement txtAddToCartMessage;
-	
-	@FindBy(xpath="//span[contains(text(), 'Proceed to checkout')]")
-	WebElement btnProceedToCheckout;
-	
+
+	@FindBy(xpath = "//input[@id='quantity_wanted']")
+	private WebElement txtBoxQuantity;
+
+	@FindBy(xpath = "//select[@id='group_1']")
+	private WebElement dropDownBtnSize;
+
+	@FindBy(xpath = "//span[contains(text(), 'Add to cart')]")
+	private WebElement btnAddToCart;
+
+	@FindBy(xpath = "//div[@id='layer_cart']//h2//i")
+	private WebElement txtAddToCartMessage;
+
+	@FindBy(xpath = "//span[contains(text(), 'Proceed to checkout')]")
+	private WebElement btnProceedToCheckout;
+
+	@FindBy(xpath = "//iframe[@class='fancybox-iframe']")
+	private WebElement iframeAddToCart;
+
 	public AddToCartPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
-	
+
+	public boolean switchIframe(String windowTitle, int count) {
+		System.out.println("wewww");
+		return Action.switchWindowByTitle(getDriver(), windowTitle, count);
+	}
+
 	public void enterQuantity(String quantity) {
 		Action.type(txtBoxQuantity, quantity);
 	}
-	
+
 	public void selectSize(String size) {
 		Action.selectByVisibleText(dropDownBtnSize, size);
 	}
-	
+
 	public void clickOnAddToCart() {
-		Action.click(driver, btnAddToCart);
+		Action.click(getDriver(), btnAddToCart);
 	}
-	
+
 	public boolean validateAddToCart() {
-		return Action.isDisplayed(driver, txtAddToCartMessage);
+		Action.fluentWait(getDriver(), txtAddToCartMessage, 10);
+		return Action.isDisplayed(getDriver(), txtAddToCartMessage);
 	}
-	
+
 	public OrderPage clickOnProceedToCheckout() throws Exception {
-		Action.JSClick(driver, btnProceedToCheckout);
+		Action.fluentWait(getDriver(), btnProceedToCheckout, 10);
+		Action.JSClick(getDriver(), btnProceedToCheckout);
 		return new OrderPage();
 	}
-	
+
 }

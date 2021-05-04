@@ -10,16 +10,16 @@ import com.myhybrid.base.BaseClass;
 public class OrderPage extends BaseClass{
 	
 	@FindBy(xpath="//span[@class='price']//span[@class='price']")
-	WebElement txtUniPrice;
+	private WebElement txtUniPrice;
 	
 	@FindBy(xpath="//span[@id='total_price']")
-	WebElement txtTotalPrice;
+	private WebElement txtTotalPrice;
 	
 	@FindBy(xpath="//span[text()='Proceed to checkout']")
-	WebElement btnProceedToCheckOut;
+	private WebElement btnProceedToCheckOut;
 	
 	public OrderPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public double getUnitPrice() {
@@ -38,7 +38,7 @@ public class OrderPage extends BaseClass{
 	}
 	
 	public LoginPage clickCheckOut() {
-		Action.click(driver, btnProceedToCheckOut);
+		Action.click(getDriver(), btnProceedToCheckOut);
 		return new LoginPage();
 	}
 

@@ -10,22 +10,22 @@ import com.myhybrid.base.BaseClass;
 public class ShippingPage extends BaseClass {
 	
 	@FindBy(xpath = "//input[@id='cgv']")
-	WebElement checkBoxTermsOfService;
+	private WebElement checkBoxTermsOfService;
 	
 	@FindBy(xpath = "//button[@name='processCarrier']")
-	WebElement btnProceedToCheckOut;
+	private WebElement btnProceedToCheckOut;
 
 	
 	public ShippingPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public void checkTermsOfService() {
-		Action.click(driver, checkBoxTermsOfService);
+		Action.click(getDriver(), checkBoxTermsOfService);
 	}
 	
 	public PaymentPage clickOnProceedToCheckOut() {
-		Action.click(driver, btnProceedToCheckOut);
+		Action.click(getDriver(), btnProceedToCheckOut);
 		return new PaymentPage();
 	}
 	
