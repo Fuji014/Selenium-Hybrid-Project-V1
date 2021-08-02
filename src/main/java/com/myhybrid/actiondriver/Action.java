@@ -60,6 +60,23 @@ public class Action extends BaseClass {
 
 	}
 
+	public static void clickToScroll(WebDriver driver, WebElement ele) {
+		boolean flag = false;
+		try {
+			Actions act = new Actions(driver);
+			act.moveToElement(ele).perform();
+			flag = true;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (flag) {
+				System.out.println("Click To Scroll Action is performed in WebElement " + ele);
+			} else {
+				System.out.println("Click To Scroll Action is not performed in WebElement " + ele);
+			}
+		}
+	}
+
 	public static boolean findElement(WebDriver driver, WebElement ele) {
 		boolean flag = false;
 		try {

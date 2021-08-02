@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.myhybrid.base.BaseClass;
+import com.myhybrid.dataprovider.DataProviders;
 import com.myhybrid.pageobjects.AddToCartPage;
 import com.myhybrid.pageobjects.IndexPage;
 import com.myhybrid.pageobjects.SearchResultPage;
@@ -13,7 +14,7 @@ public class AddToCartPageTest extends BaseClass {
 	SearchResultPage searchResultPage;
 	AddToCartPage addToCartPage;
 
-	@Test(groups = { "Regression", "Sanity" })
+	@Test(groups = { "Regression", "Sanity" }, dataProvider = "getProduct", dataProviderClass = DataProviders.class)
 	public void addToCartTest() {
 		indexPage = new IndexPage();
 		searchResultPage = indexPage.searchProduct("t-shirt");

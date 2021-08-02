@@ -5,7 +5,6 @@ import com.myhybrid.dataprovider.DataProviders;
 import com.myhybrid.pageobjects.HomePage;
 import com.myhybrid.pageobjects.IndexPage;
 import com.myhybrid.pageobjects.LoginPage;
-import com.myhybrid.utility.Hash;
 import com.myhybrid.utility.Log;
 
 import org.testng.Assert;
